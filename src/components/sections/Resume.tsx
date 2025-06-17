@@ -167,7 +167,7 @@ const Resume = () => {
                           </div>
                           <p className="text-purple-600 dark:text-purple-400 font-medium mb-4">{item.company}</p>
                           <p className="text-slate-800 dark:text-slate-300">{item.description}</p>
-                          <ul className='list-disc list-inside text-slate-500'>
+                          <ul className='list-disc list-inside text-slate-500 dark:text-slate-100'>
                             {
                               item?.points?.map((point, index) =>
                                 <li key={index}>{point}</li>
