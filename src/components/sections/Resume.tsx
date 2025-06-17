@@ -1,44 +1,54 @@
 import { useState } from 'react';
 import { Briefcase, GraduationCap, Award, Download } from 'lucide-react';
+import ResumePdf from "../../assets/resume/SantuJanaResume.pdf";
 
 const resumeData = {
   experience: [
     {
       id: 1,
-      title: 'Senior Frontend Developer',
-      company: 'Tech Solutions Inc.',
-      period: '2022 - Present',
-      description: 'Lead the development of React-based web applications, implementing modern UI/UX practices and optimizing performance. Collaborated with cross-functional teams to deliver high-quality software solutions.',
+      title: 'Full Stack Developer',
+      company: 'Bluehorse Software Solutions Private Limited',
+      period: '2023 - Present',
+      description: 'Bluehorse software solutions is a technology company specializing in custom scalable applications and end-to-end e-commerce solutions for clients across various industries. As a full stack developer, I play a key role in designing, developing, and deploying web applications that align with client goals and performance standards.',
+      points: [
+        "Developed and maintained end-to-end web applications using React.js, Node.js, Express.js and Full stack application using Next.js.",
+        "Designed and implemented RESTful APIs and integrated third-party services to streamline business workflows.",
+        "Created responsive and accessible UI components using modern front-end practices and component-based architecture.",
+        "Implemented robust authentication and Authorization using JWT, OAuth, and session-based strategies to ensure secure user access and role-based permissions.",
+        "Built and optimized MySQL and MongoDB databases, including schema design, indexing, and data migration.",
+        "Collaborated with cross-functional teams (UI/UX, QA, DevOps) in agile sprints to deliver features on schedule.",
+        "Troubleshot and debugged performance issues, reducing page load times and improving user engagement."
+      ]
     },
     {
       id: 2,
-      title: 'Full Stack Developer',
-      company: 'Digital Innovations',
-      period: '2020 - 2022',
-      description: 'Developed full-stack applications using React, Node.js, and MongoDB. Implemented RESTful APIs and handled database design. Worked closely with clients to translate requirements into functional applications.',
-    },
-    {
-      id: 3,
-      title: 'Junior Web Developer',
-      company: 'WebCraft Agency',
-      period: '2019 - 2020',
-      description: 'Created responsive websites using HTML, CSS, and JavaScript. Assisted in developing WordPress themes and plugins. Collaborated with designers to implement visual elements.',
+      title: 'Junior Software Developer',
+      company: 'Aiinhome Technologies Pvt. Ltd.',
+      period: '2021 - 2023',
+      description: 'Aiinhome Technologies is a company that specializes in big data along with mobile and web technologies.',
+      points: [
+        "Developed scalable and secure RESTful APIs using Node.js / Flask to support data-driven web and mobile applications.",
+        "Designed and optimized complex stored procedures and database logic on Microsoft SQL Server (MSSQL) to ensure high performance and data integrity.",
+        "I Worked extensively with large datasets using python and libraries like pandas for data transformation, aggregation, and analysis.",
+        "Built and managed ETL pipelines on Microsoft Azure, enabling seamless data integration from multiple sources into structured formats.",
+        "Utilized advanced SQL techniques including CTEs, window functions, indexing strategies, and performance tuning for querying and reporting on massive datasets."
+      ]
     },
   ],
   education: [
     {
       id: 1,
-      degree: 'Bachelor of Technology in Computer Science',
-      institution: 'Tech University',
-      period: '2015 - 2019',
-      description: 'Graduated with honors. Specialized in web development and software engineering. Participated in multiple hackathons and coding competitions.',
+      degree: 'Masters in Computer Science',
+      institution: 'Vidyasagar University',
+      period: '2019 - 2021',
+      description: 'CGPA - 9.15 (10.00)',
     },
     {
       id: 2,
-      degree: 'Web Development Bootcamp',
-      institution: 'CodeCamp Academy',
-      period: '2018',
-      description: 'Intensive 3-month program focusing on modern web development technologies including JavaScript, React, and Node.js.',
+      degree: 'Bachelor in Computer Science',
+      institution: 'Vidyasagar University',
+      period: '2016 - 2019',
+      description: 'Percentage - 61.5%',
     },
   ],
   certifications: [
@@ -98,7 +108,7 @@ const Resume = () => {
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-6xl mx-auto">
             <div className="flex justify-center mb-12">
               <div className="inline-flex rounded-lg bg-slate-200 dark:bg-slate-700 p-1">
                 <button
@@ -123,7 +133,7 @@ const Resume = () => {
                   <GraduationCap size={18} className="mr-2" />
                   Education
                 </button>
-                <button
+                {/* <button
                   onClick={() => setActiveTab('certifications')}
                   className={`flex items-center px-4 py-2 rounded-md transition-colors ${
                     activeTab === 'certifications'
@@ -133,7 +143,7 @@ const Resume = () => {
                 >
                   <Award size={18} className="mr-2" />
                   Certifications
-                </button>
+                </button> */}
               </div>
             </div>
 
@@ -156,7 +166,14 @@ const Resume = () => {
                             </span>
                           </div>
                           <p className="text-purple-600 dark:text-purple-400 font-medium mb-4">{item.company}</p>
-                          <p className="text-slate-600 dark:text-slate-300">{item.description}</p>
+                          <p className="text-slate-800 dark:text-slate-300">{item.description}</p>
+                          <ul className='list-disc list-inside text-slate-500'>
+                            {
+                              item?.points?.map((point, index) =>
+                                <li key={index}>{point}</li>
+                              )
+                            }
+                          </ul>
                         </div>
                       </div>
                     ))}
@@ -190,7 +207,7 @@ const Resume = () => {
                 </div>
               )}
 
-              {activeTab === 'certifications' && (
+              {/* {activeTab === 'certifications' && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 animate-fade-in">
                   {resumeData.certifications.map((item, index) => (
                     <div 
@@ -207,15 +224,16 @@ const Resume = () => {
                     </div>
                   ))}
                 </div>
-              )}
+              )} */}
             </div>
 
             <div className="flex justify-center mt-12">
               <button
-                onClick={handleDownload}
+                // onClick={downloadPDF}
                 className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all transform hover:scale-105 shadow-lg flex items-center"
               >
-                <span className="mr-2">View Full Resume</span>
+                {/* <span className="mr-2">Download Resume</span> */}
+                <a href={ResumePdf} className="mr-2" download>Download Resume</a>
                 <Download size={18} />
               </button>
             </div>

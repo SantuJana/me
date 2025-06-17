@@ -17,28 +17,31 @@ const Footer = () => {
           
           <div className="flex space-x-4">
             <a 
-              href="#" 
+              href="https://www.linkedin.com/in/santu-jana821b" 
+              target='_black' 
               className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
             </a>
             <a 
-              href="#" 
+              href="https://github.com/SantuJana" 
+              target='_black'
               className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="GitHub"
             >
               <Github size={20} />
             </a>
-            <a 
+            {/* <a 
               href="#" 
               className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="Twitter"
             >
               <Twitter size={20} />
-            </a>
+            </a> */}
             <a 
-              href="mailto:contact@santujana.com" 
+              href="mailto:santujana.1998@gmail.com" 
+              target='_black'
               className="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="Email"
             >

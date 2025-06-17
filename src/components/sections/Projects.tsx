@@ -4,23 +4,23 @@ import { ExternalLink, Github, Eye } from 'lucide-react';
 const projectsData = [
   {
     id: 1,
-    title: 'E-Commerce Platform',
+    title: 'Creoo.co',
     category: 'Full Stack',
-    image: 'https://images.pexels.com/photos/39284/macbook-apple-imac-computer-39284.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'A complete e-commerce solution with product management, cart functionality, and payment integration.',
-    technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-    liveLink: '#',
-    codeLink: '#',
+    image: '/me/projects/creoo.svg',
+    description: 'Creoo is a direct mentorship platform that connects mentors and mentees through real-time scheduling, communication, and secure transactions.',
+    technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Razorpay'],
+    liveLink: 'https://creoo.co',
+    codeLink: null,
   },
   {
     id: 2,
-    title: 'Social Media Dashboard',
+    title: 'Soterix Systems',
     category: 'Frontend',
-    image: 'https://images.pexels.com/photos/844124/pexels-photo-844124.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'Interactive dashboard for social media analytics with real-time data visualization.',
-    technologies: ['React', 'Redux', 'D3.js', 'Firebase'],
-    liveLink: '#',
-    codeLink: '#',
+    image: '/me/projects/soterix.svg',
+    description: 'Soterix Systems is an AI-powered VSaaS (Video Surveillance as a Service) platform designed to deliver intelligent security solutions. It leverages advanced computer vision and real-time video analytics to detect threats, manage zones, and provide actionable insights.',
+    technologies: ['Next.js', 'Zustand', 'D3.js', 'Firebase', 'Websocket'],
+    liveLink: 'https://www.soterixsystems.com/',
+    codeLink: null,
   },
   {
     id: 3,
@@ -77,7 +77,9 @@ const Projects = () => {
     } else {
       setVisibleProjects(projectsData.filter(project => project.category === activeCategory));
     }
-    
+  }, [activeCategory]);
+
+  useEffect(() => {
     // Apply animation after filtering
     if (projectsRef.current) {
       const projects = projectsRef.current.querySelectorAll('.project-card');
@@ -87,7 +89,7 @@ const Projects = () => {
         }, index * 100);
       });
     }
-  }, [activeCategory]);
+  }, [visibleProjects])
   
   return (
     <section id="projects" className="py-20 bg-slate-50 dark:bg-slate-800">
@@ -137,20 +139,27 @@ const Projects = () => {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-blue-600/80 dark:bg-blue-800/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-4">
-                  <a
-                    href={project.liveLink}
-                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-600 hover:bg-blue-50 transition-colors"
-                    aria-label="View live project"
-                  >
-                    <Eye size={18} />
-                  </a>
-                  <a
-                    href={project.codeLink}
-                    className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-600 hover:bg-blue-50 transition-colors"
-                    aria-label="View code on GitHub"
-                  >
-                    <Github size={18} />
-                  </a>
+                  {
+                    project.liveLink &&
+                    <a
+                      href={project.liveLink}
+                      target='_blank'
+                      className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-600 hover:bg-blue-50 transition-colors"
+                      aria-label="View live project"
+                    >
+                      <Eye size={18} />
+                    </a>
+                  }
+                  {
+                    project.codeLink &&
+                    <a
+                      href={project.codeLink}
+                      className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-blue-600 hover:bg-blue-50 transition-colors"
+                      aria-label="View code on GitHub"
+                    >
+                      <Github size={18} />
+                    </a>
+                  }
                 </div>
                 <div className="absolute top-4 right-4">
                   <span className="px-3 py-1 bg-white/90 dark:bg-slate-800/90 text-slate-700 dark:text-slate-300 rounded-full text-xs font-medium">
@@ -176,13 +185,17 @@ const Projects = () => {
                     </span>
                   ))}
                 </div>
-                <a
-                  href={project.liveLink}
-                  className="text-blue-600 dark:text-blue-400 font-medium flex items-center hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
-                >
-                  <span className="mr-2">View Project</span>
-                  <ExternalLink size={16} />
-                </a>
+                {
+                  project.liveLink &&
+                  <a
+                    href={project.liveLink}
+                    target='_blank'
+                    className="text-blue-600 dark:text-blue-400 font-medium flex items-center hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                  >
+                    <span className="mr-2">View Project</span>
+                    <ExternalLink size={16} />
+                  </a>
+                }
               </div>
             </div>
           ))}

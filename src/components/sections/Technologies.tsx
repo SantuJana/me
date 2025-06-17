@@ -1,4 +1,21 @@
 import { useEffect, useState } from 'react';
+import React from "../../assets/icons/React.svg"
+import Next from "../../assets/icons/Next.js.svg"
+import JS from "../../assets/icons/JavaScript.svg"
+import TS from "../../assets/icons/TypeScript.svg"
+import Html from "../../assets/icons/HTML5.svg"
+import Css from "../../assets/icons/CSS3.svg"
+import Tailwind from "../../assets/icons/Tailwind.svg"
+import Redux from "../../assets/icons/Redux.svg"
+import Node from "../../assets/icons/Node.svg"
+import Express from "../../assets/icons/Express.svg"
+import Api from "../../assets/icons/api.png"
+import Mongo from "../../assets/icons/MongoDB.svg"
+import Mysql from "../../assets/icons/MySQL.svg"
+import Mssql from "../../assets/icons/mssql.svg"
+import Postgres from "../../assets/icons/PostgresSQL.svg"
+import Git from "../../assets/icons/Git-Icon.svg"
+import Docker from "../../assets/icons/docker-mark-blue.svg"
 
 interface TechItem {
   name: string;
@@ -7,26 +24,26 @@ interface TechItem {
 }
 
 const technologies: TechItem[] = [
-  { name: 'React', icon: '⚛️', category: 'frontend' },
-  { name: 'Next.js', icon: '▲', category: 'frontend' },
-  { name: 'JavaScript', icon: '📜', category: 'frontend' },
-  { name: 'TypeScript', icon: '🔷', category: 'frontend' },
-  { name: 'HTML5', icon: '📄', category: 'frontend' },
-  { name: 'CSS3', icon: '🎨', category: 'frontend' },
-  { name: 'Tailwind CSS', icon: '🌊', category: 'frontend' },
-  { name: 'Redux', icon: '🔄', category: 'frontend' },
-  { name: 'Node.js', icon: '🟢', category: 'backend' },
-  { name: 'Express.js', icon: '🚂', category: 'backend' },
-  { name: 'GraphQL', icon: '⬡', category: 'backend' },
-  { name: 'REST API', icon: '🔌', category: 'backend' },
-  { name: 'MongoDB', icon: '🍃', category: 'database' },
-  { name: 'MySQL', icon: '🐬', category: 'database' },
-  { name: 'MSSQL', icon: '📊', category: 'database' },
-  { name: 'PostgreSQL', icon: '🐘', category: 'database' },
-  { name: 'Git', icon: '📋', category: 'other' },
-  { name: 'Docker', icon: '🐳', category: 'other' },
-  { name: 'AWS', icon: '☁️', category: 'other' },
-  { name: 'Firebase', icon: '🔥', category: 'other' },
+  { name: 'React', icon: React, category: 'frontend' },
+  { name: 'Next.js', icon: Next, category: 'frontend' },
+  { name: 'JavaScript', icon: JS, category: 'frontend' },
+  { name: 'TypeScript', icon: TS, category: 'frontend' },
+  { name: 'HTML5', icon: Html, category: 'frontend' },
+  { name: 'CSS3', icon: Css, category: 'frontend' },
+  { name: 'Tailwind CSS', icon: Tailwind, category: 'frontend' },
+  { name: 'Redux', icon: Redux, category: 'frontend' },
+  { name: 'Node.js', icon: Node, category: 'backend' },
+  { name: 'Express.js', icon: Express, category: 'backend' },
+  // { name: 'GraphQL', icon: '⬡', category: 'backend' },
+  { name: 'REST API', icon: Api, category: 'backend' },
+  { name: 'MongoDB', icon: Mongo, category: 'database' },
+  { name: 'MySQL', icon: Mysql, category: 'database' },
+  { name: 'MSSQL', icon: Mssql, category: 'database' },
+  { name: 'PostgreSQL', icon: Postgres, category: 'database' },
+  { name: 'Git', icon: Git, category: 'other' },
+  { name: 'Docker', icon: Docker, category: 'other' },
+  // { name: 'AWS', icon: '☁️', category: 'other' },
+  // { name: 'Firebase', icon: '🔥', category: 'other' },
 ];
 
 const Technologies = () => {
@@ -116,7 +133,7 @@ const Technologies = () => {
               className="bg-white dark:bg-slate-700 p-6 rounded-lg shadow-md hover:shadow-lg transition-all hover:scale-105 text-center animate-fade-in"
               style={{ animationDelay: `${index * 50}ms` }}
             >
-              <div className="text-3xl mb-2">{tech.icon}</div>
+              <div className="text-3xl mb-2 flex justify-center items-center"><img src={tech.icon} alt="" className='h-10 w-10 object-contain' /></div>
               <h3 className="font-medium text-slate-800 dark:text-white">{tech.name}</h3>
             </div>
           ))}

@@ -54,8 +54,8 @@ const Hero = () => {
       </div>
       
       <div className="container mx-auto px-4 py-16 z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+        <div className="grid grid-cols-1 gap-12 items-center">
+          <div className="flex flex-col items-center text-center">
             <div className="mb-6 flex space-x-3 animate-fade-in-up">
               <div className="w-10 h-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
                 <Code size={20} />
@@ -95,59 +95,6 @@ const Hero = () => {
               >
                 View Projects
               </a>
-            </div>
-          </div>
-
-          <div className="hidden lg:block relative animate-fade-in-up animation-delay-400">
-            <div className="relative">
-              <div className="w-full h-[600px] rounded-2xl overflow-hidden">
-                {/* Main Image */}
-                {/* <div className="absolute inset-0 ">
-                  <img 
-                    src="https://images.pexels.com/photos/3861958/pexels-photo-3861958.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
-                    alt="Developer workspace" 
-                    className="w-full h-full object-cover opacity-20"
-                  />
-                </div> */}
-                
-                {/* 3D Effect Layers */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative w-80 h-80">
-                    {/* Technology Orbit */}
-                    <div className="absolute inset-0 animate-spin-slow">
-                      <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-12 h-12">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" className="w-full h-full animate-float" />
-                      </div>
-                      <div className="absolute top-1/4 -right-16 w-12 h-12">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" className="w-full h-full animate-float animation-delay-200" />
-                      </div>
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-12 h-12">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB" className="w-full h-full animate-float animation-delay-400" />
-                      </div>
-                      <div className="absolute top-1/4 -left-16 w-12 h-12">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" className="w-full h-full animate-float animation-delay-600" />
-                      </div>
-                    </div>
-                    
-                    {/* Profile Image */}
-                    <div className="absolute inset-8 rounded-full overflow-hidden border-4 border-blue-500/30 shadow-2xl">
-                      <img 
-                        src={Me} 
-                        alt="Santu Jana" 
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                  </div>
-                </div>
-                
-                {/* Floating Elements */}
-                {/* <div className="absolute top-10 right-10 animate-float">
-                  <div className="w-20 h-20 rounded-xl bg-blue-500/10 backdrop-blur-sm border border-blue-500/20 shadow-xl"></div>
-                </div>
-                <div className="absolute bottom-10 left-10 animate-float animation-delay-200">
-                  <div className="w-16 h-16 rounded-xl bg-purple-500/10 backdrop-blur-sm border border-purple-500/20 shadow-xl"></div>
-                </div> */}
-              </div>
             </div>
           </div>
         </div>
