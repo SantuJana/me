@@ -228,14 +228,16 @@ const Resume = () => {
             </div>
 
             <div className="flex justify-center mt-12">
-              <button
-                // onClick={downloadPDF}
-                className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all transform hover:scale-105 shadow-lg flex items-center"
-              >
-                {/* <span className="mr-2">Download Resume</span> */}
-                <a href={ResumePdf} className="mr-2" download>Download Resume</a>
-                <Download size={18} />
-              </button>
+              <a href={ResumePdf} className=" rounded-full" download>
+                <button
+                  // onClick={downloadPDF}
+                  className="px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full transition-all transform hover:scale-105 shadow-lg flex items-center"
+                >
+                  <span className="mr-2">Download Resume</span>
+                  {/* Download Resume */}
+                  <Download size={18} />
+                </button>
+              </a>
             </div>
           </div>
         </div>

@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { MapPin, Phone, Mail, Send } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
+  const form = useRef(null);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -20,20 +22,33 @@ const Contact = () => {
   
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (!form.current) return;
+
     setIsSubmitting(true);
     setError('');
     
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setSubmitted(true);
-      setFormData({ name: '', email: '', subject: '', message: '' });
+    emailjs
+      .sendForm('service_uo7ll3m', 'template_z3v5vwy', form.current, {
+        publicKey: '2paxr913Fl6RJ8uop',
+      })
+      .then(
+        () => {
+          setIsSubmitting(false);
+          setSubmitted(true);
+          setFormData({ name: '', email: '', subject: '', message: '' });
+          
+          // Reset submission status after 5 seconds
+          setTimeout(() => {
+            setSubmitted(false);
+          }, 5000);
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
       
-      // Reset submission status after 5 seconds
-      setTimeout(() => {
-        setSubmitted(false);
-      }, 5000);
-    }, 1500);
+    // }, 1500);
   };
   
   return (
@@ -130,7 +145,7 @@ const Contact = () => {
               </div>
             ) : null}
             
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-1">
                   Your Name
