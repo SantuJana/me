@@ -1,66 +1,72 @@
 import { useState, useEffect, useRef } from 'react';
-import { ExternalLink, Github, Eye } from 'lucide-react';
+import { ExternalLink, Github, Eye, Lock } from 'lucide-react';
 
 const projectsData = [
   {
     id: 1,
     title: 'Creoo.co',
     category: 'Full Stack',
-    image: '/me/projects/creoo.svg',
+    image: '/me/projects/creoo.webp',
     description: 'Creoo is a direct mentorship platform that connects mentors and mentees through real-time scheduling, communication, and secure transactions.',
     technologies: ['Next.js', 'Node.js', 'Express', 'PostgreSQL', 'Razorpay'],
     liveLink: 'https://creoo.co',
     codeLink: null,
+    private: false,
   },
   {
     id: 2,
     title: 'Soterix Systems',
     category: 'Frontend',
-    image: '/me/projects/soterix.svg',
+    image: '/me/projects/soterix.webp',
     description: 'Soterix Systems is an AI-powered VSaaS (Video Surveillance as a Service) platform designed to deliver intelligent security solutions. It leverages advanced computer vision and real-time video analytics to detect threats, manage zones, and provide actionable insights.',
     technologies: ['Next.js', 'Zustand', 'D3.js', 'Firebase', 'Websocket'],
     liveLink: 'https://www.soterixsystems.com/',
     codeLink: null,
+    private: false,
   },
   {
     id: 3,
-    title: 'Task Management API',
-    category: 'Backend',
-    image: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'RESTful API for task management with authentication and authorization.',
-    technologies: ['Node.js', 'Express', 'MongoDB', 'JWT'],
-    liveLink: '#',
-    codeLink: '#',
+    title: 'iUdyog',
+    category: 'Full Stack',
+    image: '/me/projects/iUdyog.webp',
+    description: `iUdyog is a robust and scalable Content Management System (CMS) designed to simplify website data management. The platform allows administrators to efficiently handle and update various website components such as pages, blogs, forms, FAQs, banners, menus, and more—all from a single, user-friendly interface.`,
+    technologies: ['React.js', 'ShadCN', 'Zustand', 'Node.js', 'Express', 'Postgres', 'JWT'],
+    liveLink: 'https://cms.admin.tezcommerce.com/cms',
+    codeLink: null,
+    private: false,
   },
   {
     id: 4,
-    title: 'Real Estate Platform',
-    category: 'Full Stack',
-    image: 'https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'Property listing platform with advanced search, filtering, and user management.',
-    technologies: ['Next.js', 'Node.js', 'PostgreSQL', 'AWS'],
-    liveLink: '#',
-    codeLink: '#',
+    title: 'Leptyn',
+    category: 'Backend',
+    image: '/me/projects/leptyn.webp',
+    description: 'Leptyn is an innovative healthcare platform designed to simplify and enhance the patient experience by providing a unified solution for health product purchases, doctor appointments, procedure bookings, and electronic medical record (EMR) management. The platform bridges the gap between patients, healthcare providers, and pharmacies—offering seamless access to essential medical services through a single digital ecosystem.',
+    technologies: ['Node.js', 'Express', 'OAuth', 'JWT', 'MySQL'],
+    liveLink: 'https://app.leptyn.com/',
+    codeLink: null,
+    private: false,
   },
   {
     id: 5,
-    title: 'Portfolio Website',
-    category: 'Frontend',
-    image: 'https://images.pexels.com/photos/1779487/pexels-photo-1779487.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'Responsive portfolio website with smooth animations and interactive elements.',
-    technologies: ['React', 'Three.js', 'GSAP', 'Tailwind'],
-    liveLink: '#',
-    codeLink: '#',
+    title: 'Data Construction Tool',
+    category: 'Backend',
+    image: '/me/projects/DCT.png',
+    description: 'The Data Construction Tool is a comprehensive data validation and monitoring system designed to ensure data accuracy, consistency, and integrity across multiple processing layers — including the Data Layer, Technical Layer, and Business Layer. The tool automates validation checks through predefined rules and provides a centralized dashboard for tracking data quality metrics, enabling organizations to maintain reliable and actionable data pipelines.',
+    technologies: ['Node.js', 'Express', 'JWT', 'MSSQL', 'Stored Procedure'],
+    liveLink: null,
+    codeLink: null,
+    private: true,
   },
   {
     id: 6,
-    title: 'Blog CMS',
-    category: 'Backend',
-    image: 'https://images.pexels.com/photos/267569/pexels-photo-267569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    description: 'Content management system for blogs with markdown support and image uploads.',
-    technologies: ['Express', 'MongoDB', 'AWS S3', 'JWT'],
-    liveLink: '#',
-    codeLink: '#',
+    title: 'DBDT',
+    category: 'Full Stack',
+    image: '/me/projects/dbdt.png',
+    description: 'DBDT is an advanced ETL (Extract, Transform, Load) platform designed to automate and simplify data movement across multiple systems and storage types. It enables seamless data extraction from various sources — such as relational databases, FTP/SFTP servers, local storage, and cloud platforms like Google Drive — and supports flexible loading to different destinations, including reverse data flow (vice versa). The platform allows users to configure ETL pipelines, apply transformations during load, and schedule automated executions for continuous data integration.',
+    technologies: ['Node.js', 'Express', 'JWT', 'MSSQL', 'Stored Procedure', 'React.js', 'Redux', 'Python', 'Flask', 'OAuth'],
+    liveLink: null,
+    codeLink: null,
+    private: true,
   },
 ];
 
@@ -195,6 +201,15 @@ const Projects = () => {
                     <span className="mr-2">View Project</span>
                     <ExternalLink size={16} />
                   </a>
+                }
+                {
+                  project.private &&
+                  <p
+                    className="text-blue-600 dark:text-blue-400 font-medium flex items-center hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                  >
+                    <Lock size={16} />
+                    <span className="ml-2">Private Project</span>
+                  </p>
                 }
               </div>
             </div>

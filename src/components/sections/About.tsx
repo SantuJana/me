@@ -45,7 +45,7 @@ const About = () => {
                 <BookOpen className="text-purple-600 dark:text-purple-400 mr-3" size={20} />
                 <div>
                   <h4 className="font-semibold text-slate-800 dark:text-white">Projects</h4>
-                  <p className="text-slate-600 dark:text-slate-400">15+ Completed</p>
+                  <p className="text-slate-600 dark:text-slate-400">10+ Completed</p>
                 </div>
               </div>
               
@@ -53,7 +53,7 @@ const About = () => {
                 <User className="text-green-600 dark:text-green-400 mr-3" size={20} />
                 <div>
                   <h4 className="font-semibold text-slate-800 dark:text-white">Clients</h4>
-                  <p className="text-slate-600 dark:text-slate-400">10+ Happy</p>
+                  <p className="text-slate-600 dark:text-slate-400">5+ Happy</p>
                 </div>
               </div>
               
